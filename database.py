@@ -1,6 +1,21 @@
 from sqlite3 import connect, Error
 
 
+def SavatClear(user_id):
+    try:
+        c = connect("savat.db")
+        cursor = c.cursor()
+        cursor.execute("delete from savat  where user_id=?", (user_id,))
+        c.commit()
+    except (Error, Exception) as eror:
+        print(eror)
+    finally:
+        if c:
+            cursor.close()
+            c.close()
+
+
+
 def AddSavat(name, narxi, count, user_id):
     try:
         c = connect("savat.db")

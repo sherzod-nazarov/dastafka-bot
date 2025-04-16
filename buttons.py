@@ -1,4 +1,4 @@
-from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardMarkup, KeyboardButton
 import requests
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 
@@ -35,4 +35,19 @@ buyurtma = InlineKeyboardMarkup(
     inline_keyboard=[
         [InlineKeyboardButton(text="buyurtma berish", callback_data="buyurtma"), InlineKeyboardButton(text="savat tozalash", callback_data="tozalash")]
     ]
+)
+
+ContactPhone = ReplyKeyboardMarkup(
+    keyboard=[
+        [KeyboardButton(text="Contact", request_contact=True)]
+    ],
+    resize_keyboard=True
+)
+
+
+LocationButtons = ReplyKeyboardMarkup(
+    keyboard=[
+        [KeyboardButton(text="Location", request_location=True)]
+    ],
+    resize_keyboard=True
 )
